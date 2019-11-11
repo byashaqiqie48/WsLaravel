@@ -28,6 +28,13 @@
                     <th>Jenis Buku</th>
                     <td>{{ $book->jenis->jenis_buku }}</td>
                 </tr>
+                    <th>Identitas Buku</th>
+                    <td>
+                    @foreach($book->identity as $item)
+                    <strong>{{ $item->nama_identity }}</strong>,
+                    @endforeach
+                    </td>
+                </tr>
                 <tr>
                     <th>Foto</th>
                     <td>

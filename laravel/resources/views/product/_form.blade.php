@@ -38,6 +38,22 @@
     {!! $errors->first('id_jenis', '<p class="help-block">:message</p>') !!}
 </div>
 
+<div class="form-group {!! $errors->has('identity') ? 'has-error' : ''!!}">
+{!! Form::label('identity', 'Identitas Buku') !!}
+@if(count($list_identity)>0)
+    @foreach($list_identity as $key => $value)
+<div class="checkbox">
+<label>
+{!! Form::checkbox('identity[]',$key, null) !!}
+    {{ $value }}
+</label>
+    @endforeach
+@else
+<p>tidak ada pilihan</p>
+@endif
+{!! $errors->first('identity', '<p class="help-block">:message</p>')!!}
+</div>
+
 <div class="form-group {!! $errors->has('photo') ? 'has-error' : ''!!}">
 {!! Form::label('photo', 'Gambar') !!}
 {!! Form::file('photo', null, ['class'=>'form-control']) !!}

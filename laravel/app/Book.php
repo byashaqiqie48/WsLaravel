@@ -25,4 +25,14 @@ class Book extends Model
         return $this->belongsTo('App\Jenis','id_jenis');
     }
 
+    public function identity()
+    {
+        return $this->belongsToMany('App\Identity','identity_book','id_book','id_identity')->withTimeStamps();
+    }
+
+    public function getIdentityBookAttribute()
+    {
+        return $this->identity->pluck(‘id’)->toArray();
+    }
+
 }
